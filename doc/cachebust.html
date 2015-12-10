@@ -1,0 +1,71 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package cachebust</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>cachebust</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"></font></td></tr></table>
+    <p><tt>Copyright&nbsp;(c)&nbsp;2015&nbsp;Timothy&nbsp;Savannah&nbsp;under&nbsp;LGPLv2.&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;as&nbsp;LICENSE&nbsp;with&nbsp;this&nbsp;distribution.<br>
+&nbsp;<br>
+"cachebust"&nbsp;provides&nbsp;a&nbsp;means&nbsp;to&nbsp;ensure&nbsp;that&nbsp;browsers&nbsp;always&nbsp;fetch&nbsp;updated&nbsp;files&nbsp;when&nbsp;they&nbsp;change,&nbsp;by&nbsp;adding&nbsp;a&nbsp;param&nbsp;'cachebust=$md5sum'&nbsp;to&nbsp;all&nbsp;the&nbsp;asset&nbsp;tags.&nbsp;When&nbsp;the&nbsp;file&nbsp;changes,&nbsp;the&nbsp;md5sum&nbsp;is&nbsp;updated,&nbsp;and&nbsp;the&nbsp;browser&nbsp;makes&nbsp;a&nbsp;new&nbsp;request.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-cachebustFile"><strong>cachebustFile</strong></a>(filename, encoding<font color="#909090">='utf-8'</font>, assetRoot<font color="#909090">=None</font>, quiet<font color="#909090">=False</font>)</dt><dd><tt>cachebustFile&nbsp;-&nbsp;cachebusts&nbsp;provided&nbsp;file&nbsp;and&nbsp;returns&nbsp;the&nbsp;cachebusted&nbsp;html.<br>
+&nbsp;<br>
+@param&nbsp;html&nbsp;&lt;str&gt;&nbsp;-&nbsp;String&nbsp;of&nbsp;html<br>
+@param&nbsp;encoding&nbsp;&lt;str&gt;&nbsp;-&nbsp;Encoding&nbsp;to&nbsp;use&nbsp;(default,&nbsp;utf-8)<br>
+@param&nbsp;assetRoot&nbsp;&lt;None/str&gt;&nbsp;-&nbsp;Filesystem&nbsp;path&nbsp;which&nbsp;should&nbsp;be&nbsp;treated&nbsp;as&nbsp;representing&nbsp;"/"&nbsp;for&nbsp;urls.&nbsp;If&nbsp;None&nbsp;is&nbsp;provided,&nbsp;current&nbsp;directory&nbsp;will&nbsp;be&nbsp;used.<br>
+@param&nbsp;quiet&nbsp;&lt;bool&gt;&nbsp;-&nbsp;True&nbsp;to&nbsp;silence&nbsp;warnings&nbsp;to&nbsp;stderr&nbsp;when&nbsp;cachebusting&nbsp;cannot&nbsp;be&nbsp;applied.<br>
+&nbsp;<br>
+@return&nbsp;-&nbsp;cachebusted&nbsp;HTML</tt></dd></dl>
+ <dl><dt><a name="-cachebustHtml"><strong>cachebustHtml</strong></a>(html, encoding<font color="#909090">='utf-8'</font>, assetRoot<font color="#909090">=None</font>, quiet<font color="#909090">=False</font>)</dt><dd><tt>cachebustHtml&nbsp;-&nbsp;cachebusts&nbsp;provided&nbsp;html&nbsp;string&nbsp;and&nbsp;returns&nbsp;the&nbsp;cachebusted&nbsp;html.<br>
+&nbsp;<br>
+@param&nbsp;html&nbsp;&lt;str&gt;&nbsp;-&nbsp;String&nbsp;of&nbsp;html<br>
+@param&nbsp;encoding&nbsp;&lt;str&gt;&nbsp;-&nbsp;Encoding&nbsp;to&nbsp;use&nbsp;(default,&nbsp;utf-8)<br>
+@param&nbsp;assetRoot&nbsp;&lt;None/str&gt;&nbsp;-&nbsp;Filesystem&nbsp;path&nbsp;which&nbsp;should&nbsp;be&nbsp;treated&nbsp;as&nbsp;representing&nbsp;"/"&nbsp;for&nbsp;urls.&nbsp;If&nbsp;None&nbsp;is&nbsp;provided,&nbsp;current&nbsp;directory&nbsp;will&nbsp;be&nbsp;used.<br>
+@param&nbsp;quiet&nbsp;&lt;bool&gt;&nbsp;-&nbsp;True&nbsp;to&nbsp;silence&nbsp;warnings&nbsp;to&nbsp;stderr&nbsp;when&nbsp;cachebusting&nbsp;cannot&nbsp;be&nbsp;applied.<br>
+&nbsp;<br>
+@return&nbsp;-&nbsp;cachebusted&nbsp;HTML</tt></dd></dl>
+ <dl><dt><a name="-cachebustUrl"><strong>cachebustUrl</strong></a>(urlValue, assetRoot<font color="#909090">=None</font>, quiet<font color="#909090">=False</font>)</dt><dd><tt>cachebustUrl&nbsp;-&nbsp;Uses&nbsp;a&nbsp;parameter,&nbsp;"cachebust"&nbsp;to&nbsp;ensure&nbsp;browser&nbsp;caching&nbsp;always&nbsp;picks&nbsp;up&nbsp;new&nbsp;value.&nbsp;Returns&nbsp;a&nbsp;cachebusted&nbsp;url&nbsp;from&nbsp;a&nbsp;given&nbsp;asset&nbsp;url<br>
+&nbsp;<br>
+@param&nbsp;urlValue&nbsp;&lt;str&gt;&nbsp;-&nbsp;Url&nbsp;value&nbsp;of&nbsp;asset&nbsp;(like&nbsp;value&nbsp;of&nbsp;"src"&nbsp;attribute)<br>
+@param&nbsp;assetRoot&nbsp;&lt;None/str&gt;&nbsp;-&nbsp;Filesystem&nbsp;path&nbsp;which&nbsp;should&nbsp;be&nbsp;treated&nbsp;as&nbsp;representing&nbsp;"/"&nbsp;for&nbsp;urls.&nbsp;If&nbsp;None&nbsp;is&nbsp;provided,&nbsp;current&nbsp;directory&nbsp;will&nbsp;be&nbsp;used.<br>
+@param&nbsp;quiet&nbsp;&lt;bool&gt;&nbsp;-&nbsp;True&nbsp;to&nbsp;silence&nbsp;warnings&nbsp;to&nbsp;stderr&nbsp;when&nbsp;cachebusting&nbsp;cannot&nbsp;be&nbsp;applied.<br>
+&nbsp;<br>
+@return&nbsp;-&nbsp;The&nbsp;same&nbsp;url&nbsp;on&nbsp;error,&nbsp;otherwise&nbsp;the&nbsp;url&nbsp;with&nbsp;"cachebust"&nbsp;param&nbsp;set&nbsp;to&nbsp;md5sum&nbsp;of&nbsp;file&nbsp;(so&nbsp;changes&nbsp;cause&nbsp;a&nbsp;refresh)</tt></dd></dl>
+ <dl><dt><a name="-md5"><strong>md5</strong></a> = openssl_md5(...)</dt><dd><tt>Returns&nbsp;a&nbsp;md5&nbsp;hash&nbsp;object;&nbsp;optionally&nbsp;initialized&nbsp;with&nbsp;a&nbsp;string</tt></dd></dl>
+ <dl><dt><a name="-updateDocument"><strong>updateDocument</strong></a>(parserObj, assetRoot<font color="#909090">=None</font>, quiet<font color="#909090">=False</font>)</dt><dd><tt>updateDocument&nbsp;-&nbsp;Updates&nbsp;an&nbsp;AdvancedHTMLParser.AdvancedHTMLParser&nbsp;object&nbsp;to&nbsp;cachebust&nbsp;all&nbsp;items<br>
+&nbsp;<br>
+@param&nbsp;parserObj&nbsp;&lt;AdvancedHTMLParser.AdvancedHTMLParser&gt;&nbsp;-&nbsp;The&nbsp;object&nbsp;which&nbsp;represents&nbsp;the&nbsp;document&nbsp;to&nbsp;cachebust<br>
+@param&nbsp;assetRoot&nbsp;&lt;None/str&gt;&nbsp;-&nbsp;Filesystem&nbsp;path&nbsp;which&nbsp;should&nbsp;be&nbsp;treated&nbsp;as&nbsp;representing&nbsp;"/"&nbsp;for&nbsp;urls.&nbsp;If&nbsp;None&nbsp;is&nbsp;provided,&nbsp;current&nbsp;directory&nbsp;will&nbsp;be&nbsp;used.<br>
+@param&nbsp;quiet&nbsp;&lt;bool&gt;&nbsp;-&nbsp;True&nbsp;to&nbsp;silence&nbsp;warnings&nbsp;to&nbsp;stderr&nbsp;when&nbsp;cachebusting&nbsp;cannot&nbsp;be&nbsp;applied.<br>
+&nbsp;<br>
+@return&nbsp;-&nbsp;None</tt></dd></dl>
+ <dl><dt><a name="-updateTag"><strong>updateTag</strong></a>(tagObj, fieldName<font color="#909090">=None</font>, assetRoot<font color="#909090">=None</font>, quiet<font color="#909090">=False</font>)</dt><dd><tt>updateTag&nbsp;-&nbsp;Updates&nbsp;an&nbsp;AdvancedHTMLParser.AdvancedTag&nbsp;object&nbsp;to&nbsp;cachebust&nbsp;its&nbsp;source.<br>
+&nbsp;<br>
+&nbsp;<br>
+@param&nbsp;tagObj&nbsp;&lt;AdvancedHTMLParser.AdvancedTag&gt;&nbsp;-&nbsp;A&nbsp;tag&nbsp;which&nbsp;will&nbsp;be&nbsp;cachebusted<br>
+@param&nbsp;fieldName&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;The&nbsp;attribute&nbsp;to&nbsp;cachebust.&nbsp;If&nbsp;"None"&nbsp;is&nbsp;provided,&nbsp;based&nbsp;on&nbsp;the&nbsp;tag&nbsp;name&nbsp;one&nbsp;will&nbsp;be&nbsp;picked&nbsp;("src"&nbsp;for&nbsp;img,script&nbsp;and&nbsp;"rel"&nbsp;for&nbsp;link)<br>
+@param&nbsp;assetRoot&nbsp;&lt;None/str&gt;&nbsp;-&nbsp;Filesystem&nbsp;path&nbsp;which&nbsp;should&nbsp;be&nbsp;treated&nbsp;as&nbsp;representing&nbsp;"/"&nbsp;for&nbsp;urls.&nbsp;If&nbsp;None&nbsp;is&nbsp;provided,&nbsp;current&nbsp;directory&nbsp;will&nbsp;be&nbsp;used.<br>
+@param&nbsp;quiet&nbsp;&lt;bool&gt;&nbsp;-&nbsp;True&nbsp;to&nbsp;silence&nbsp;warnings&nbsp;to&nbsp;stderr&nbsp;when&nbsp;cachebusting&nbsp;cannot&nbsp;be&nbsp;applied.<br>
+&nbsp;<br>
+@return&nbsp;-&nbsp;True&nbsp;on&nbsp;success&nbsp;(tag&nbsp;was&nbsp;updated),&nbsp;False&nbsp;on&nbsp;failure&nbsp;(tag&nbsp;was&nbsp;not&nbsp;updated)</tt></dd></dl>
+</td></tr></table>
+</body></html>

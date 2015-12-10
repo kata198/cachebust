@@ -1,0 +1,80 @@
+#!/usr/bin/env python
+'''
+    Copyright (c) 2015 Timothy Savannah under LGPLv2. You should have received a copy of this as LICENSE with this distribution.
+
+    "cachebust" provides a means to ensure that browsers always fetch updated files when they change, by adding a param 'cachebust=$md5sum' to all the asset tags. When the file changes, the md5sum is updated, and the browser makes a new request.
+'''
+
+# vim: ts=4 sw=4 expandtab :
+
+import os
+import sys
+
+import ArgumentParser
+
+import cachebust
+
+APP_NAME = "cacheBust"
+
+def printUsage():
+    sys.stderr.write('''Usage: %s (options) [input]
+
+  Options:
+
+     -r or --asset-root       Specify the filesystem root which should be treated as "/" for links. Default is cwd
+     -e or --encoding         Specify the encoding to use (default, utf-8)
+     -q or --quiet            Do not print errors to stderr when cannot cachebust an element
+
+     --help                   Show this message
+''' %(APP_NAME,))
+
+
+if __name__ == '__main__':
+
+    argParser = ArgumentParser.ArgumentParser(
+        ['assetRoot', 'encoding'],
+        ['r', 'e'],
+        ['asset-root', 'encoding'],
+        ['--help', '-q', '--quiet'],
+        None,
+        True
+    )
+
+    argsParsed = argParser.parse(sys.argv[1:])
+
+    argResults = argsParsed['result']
+
+    if argResults['--help']:
+        printUsage()
+        sys.exit(0)
+
+
+    if 'assetRoot' in argResults:
+        assetRoot = argResults['assetRoot']
+        if assetRoot.endswith('/'):
+            assetRoot = assetRoot[:-1]
+    else:
+        assetRoot = os.getcwd()
+
+    if 'encoding' in argResults:
+        encoding = argResults['encoding']
+    else:
+        encoding = 'utf-8'
+
+    if argResults['--quiet'] or argResults['-q']:
+        quiet = True
+    else:
+        quiet = False
+
+    remainingArgs = argsParsed['unmatched']
+
+    if not remainingArgs:
+        htmlContents = sys.stdin.read()
+        sys.stdout.write(cachebust.cachebustHtml(htmlContents, encoding, assetRoot, quiet))
+    elif len(remainingArgs) == 1:
+        sys.stdout.write(cachebust.cachebustFile(remainingArgs[0], encoding, assetRoot, quiet))
+    else:
+        sys.stderr.write('too many arguments.\n\n')
+        printUsage()
+        sys.exit(1)
+
