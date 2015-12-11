@@ -1,0 +1,13 @@
+recursive-include doc *.html
+recursive-include tests *
+recursive-include tests/root *
+recursive-include tests/root/scripts *
+recursive-include tests/imgs *
+recursive-include bin cacheBust
+recursive-include cachebust *.py
+include ChangeLog
+include README.md
+include README.rst
+include LICENSE
+include setup.py
+include MANIFEST.in

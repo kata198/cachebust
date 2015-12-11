@@ -19,6 +19,13 @@ except ImportError:
 
 from hashlib import md5
 
+
+__all__ = ('cachebustUrl', 'updateTag', 'updateDocument', 'cachebustHtml', 'cachebustFile')
+
+__version__ = '1.0.1'
+__version_tuple__ = (1, 0, 1)
+
+
 def cachebustUrl(urlValue, assetRoot=None, quiet=False):
     '''
         cachebustUrl - Uses a parameter, "cachebust" to ensure browser caching always picks up new value. Returns a cachebusted url from a given asset url
