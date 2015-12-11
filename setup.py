@@ -27,7 +27,7 @@ if __name__ == '__main__':
         long_description = summary
 
     setup(name='cachebust',
-            version='1.0.2',
+            version='1.0.3',
             packages=['cachebust'],
             scripts=['bin/cacheBust'],
             author='Tim Savannah',

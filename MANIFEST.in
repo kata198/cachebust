@@ -1,8 +1,8 @@
 recursive-include doc *.html
-recursive-include tests *
-recursive-include tests/root *
-recursive-include tests/root/scripts *
-recursive-include tests/imgs *
+recursive-include test *
+recursive-include test/root *
+recursive-include test/root/scripts *
+recursive-include test/imgs *
 recursive-include bin cacheBust
 recursive-include cachebust *.py
 include ChangeLog

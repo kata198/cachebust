@@ -22,8 +22,8 @@ from hashlib import md5
 
 __all__ = ('cachebustUrl', 'updateTag', 'updateDocument', 'cachebustHtml', 'cachebustFile')
 
-__version__ = '1.0.2'
-__version_tuple__ = (1, 0, 2)
+__version__ = '1.0.3'
+__version_tuple__ = (1, 0, 3)
 
 
 def cachebustUrl(urlValue, assetRoot=None, quiet=False):
