@@ -20,14 +20,14 @@ if __name__ == '__main__':
     summary = 'Provide a server-side means to ensure that clients always fetch assets when they are updated'
 
     try:
-        with open('README.rst', 'r') as f:
+        with open('README.rst', 'rt') as f:
             long_description = f.read()
     except Exception as e:
         sys.stderr.write('Exception when reading long description: %s\n' %(str(e),))
         long_description = summary
 
     setup(name='cachebust',
-            version='1.0.1',
+            version='1.0.2',
             packages=['cachebust'],
             scripts=['bin/cacheBust'],
             author='Tim Savannah',
@@ -35,12 +35,12 @@ if __name__ == '__main__':
             maintainer='Tim Savannah',
             requires=['AdvancedHTMLParser', 'ArgumentParser'],
             install_requires=['AdvancedHTMLParser', 'ArgumentParser'],
-            url='https://github.com/kata198/AdvancedHTMLParser',
+            url='https://github.com/kata198/cachebust',
             maintainer_email='kata198@gmail.com',
             description=summary,
             long_description=long_description,
             license='LGPLv2',
-            keywords=['cache', 'bust', 'url', 'md5', 'javascript', 'css', 'asset', 'update'],
+            keywords=['cache', 'bust', 'url', 'md5', 'javascript', 'css', 'asset', 'update', 'cachebust', 'python', 'html'],
             classifiers=['Development Status :: 5 - Production/Stable',
                          'Programming Language :: Python',
                          'License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)',

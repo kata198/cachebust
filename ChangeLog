@@ -1,2 +1,5 @@
-* 1.0.1 12/11/2015
+* 1.0.2 12/11/2015
 - Add MANIFEST.in and version info to the module
+- add __version__
+- add __all__
+- fixup setup.py
