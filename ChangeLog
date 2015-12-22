@@ -1,4 +1,10 @@
-* 1.0.2 12/11/2015
+* 1.1.0 December 22, 2015 
+- Add a larger test with more assets
+- Switch to using IndexedAdvancedHTMLParser indexing only on tag names for better peformance on large documents
+- When passing an argument to the cacheBust executable (or cachebust.cachebustFile), treat the cwd as the directory containing the filename, not the invocation directory, to correctly handle relative paths within those documents.
+- Add --version to cacheBust executable
+
+* 1.0.2 December 11, 2015
 - Add MANIFEST.in and version info to the module
 - add __version__
 - add __all__

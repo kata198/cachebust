@@ -26,6 +26,7 @@ def printUsage():
      -q or --quiet            Do not print errors to stderr when cannot cachebust an element
 
      --help                   Show this message
+     --version                Print version information
 ''' %(APP_NAME,))
 
 
@@ -35,7 +36,7 @@ if __name__ == '__main__':
         ['assetRoot', 'encoding'],
         ['r', 'e'],
         ['asset-root', 'encoding'],
-        ['--help', '-q', '--quiet'],
+        ['--help', '-q', '--quiet', '--version'],
         None,
         True
     )
@@ -47,6 +48,10 @@ if __name__ == '__main__':
     if argResults['--help']:
         printUsage()
         sys.exit(0)
+
+    if argResults['--version']:
+        sys.stdout.write('cachebust by Tim Savannah version %s\n' %(cachebust.__version__,))
+        sys.exit(0)  
 
 
     if 'assetRoot' in argResults:
