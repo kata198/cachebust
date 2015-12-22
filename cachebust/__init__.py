@@ -171,9 +171,28 @@ def cachebustFile(filename, encoding='utf-8', assetRoot=None, quiet=False):
     '''
     import AdvancedHTMLParser
 
-    parser = AdvancedHTMLParser.AdvancedHTMLParser(encoding=encoding)
-    parser.parseFile(filename)
-    updateDocument(parser, assetRoot, quiet)
+    oldCwd = None
+    # Check if we need to change current directory to match given filename
+    dirName = os.path.dirname(filename)
+    if dirName:
+        if assetRoot and assetRoot[0] != '/':
+            assetRoot = "%s/%s" %(os.getcwd(), assetRoot)
+        oldCwd = os.getcwd()
+        newCwd = "%s/%s" %(os.getcwd(), dirName)
+        os.chdir(newCwd)
+        filename = os.path.basename(filename)
+
+    try:
+        parser = AdvancedHTMLParser.AdvancedHTMLParser(encoding=encoding)
+        parser.parseFile(filename)
+        updateDocument(parser, assetRoot, quiet)
+    except:
+        if oldCwd:
+            os.chdir(oldCwd)
+        raise
+
+    if oldCwd:
+        os.chdir(oldCwd)
 
     return parser.getHTML()
 

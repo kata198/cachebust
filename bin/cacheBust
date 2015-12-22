@@ -54,7 +54,7 @@ if __name__ == '__main__':
         if assetRoot.endswith('/'):
             assetRoot = assetRoot[:-1]
     else:
-        assetRoot = os.getcwd()
+        assetRoot = None
 
     if 'encoding' in argResults:
         encoding = argResults['encoding']
