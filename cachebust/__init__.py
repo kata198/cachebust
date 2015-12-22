@@ -152,7 +152,7 @@ def cachebustHtml(html, encoding='utf-8', assetRoot=None, quiet=False):
     '''
     import AdvancedHTMLParser
 
-    parser = AdvancedHTMLParser.AdvancedHTMLParser(encoding=encoding)
+    parser = AdvancedHTMLParser.IndexedAdvancedHTMLParser(encoding=encoding, indexIDs=False, indexNames=False, indexClassNames=False, indexTagNames=True)
     parser.parseStr(html)
     updateDocument(parser, assetRoot, quiet)
 
@@ -183,7 +183,7 @@ def cachebustFile(filename, encoding='utf-8', assetRoot=None, quiet=False):
         filename = os.path.basename(filename)
 
     try:
-        parser = AdvancedHTMLParser.AdvancedHTMLParser(encoding=encoding)
+        parser = AdvancedHTMLParser.IndexedAdvancedHTMLParser(encoding=encoding, indexIDs=False, indexNames=False, indexClassNames=False, indexTagNames=True)
         parser.parseFile(filename)
         updateDocument(parser, assetRoot, quiet)
     except:
